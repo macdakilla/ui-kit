@@ -1,0 +1,124 @@
+.flex,
+.inline-flex {
+  display: flex;
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+  &.column {
+    flex-direction: column;
+  }
+  &.j-start {
+    justify-content: flex-start;
+  }
+  &.j-center {
+    justify-content: center;
+  }
+  &.j-between {
+    justify-content: space-between;
+  }
+  &.j-end {
+    justify-content: flex-end;
+  }
+  &.a-start {
+    align-items: flex-start;
+  }
+  &.a-center {
+    align-items: center;
+  }
+  &.a-end {
+    align-items: flex-end;
+  }
+  .grow {
+    flex-grow: 1;
+  }
+  .shrink {
+    flex-shrink: 0;
+  }
+  .wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.scroll-parent {
+  overflow: auto;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+.buttons {
+  & > * {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.text-regular {
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+  font-weight: $font-weight-normal;
+}
+
+.heading {
+  margin-bottom: 40px;
+}
+
+.block {
+  margin-bottom: 50px;
+  &.less-margin {
+    margin-bottom: 30px;
+  }
+  &.more-margin {
+    margin-bottom: 80px;
+  }
+}
+
+.space {
+  height: 1px;
+  margin-bottom: 9px;
+}
+
+.labels {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .label {
+    margin-bottom: 8px;
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  & > * {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
+
+.label {
+  padding: 4px 14px;
+  border-radius: 30px;
+  background: $color-label-purple;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+  font-weight: $font-weight-semibold;
+  &.green {
+    background: $color-label-green;
+  }
+  &.blue {
+    background: $color-label-blue;
+  }
+}

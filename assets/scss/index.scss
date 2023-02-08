@@ -1,0 +1,82 @@
+// core
+@import 'variables/index';
+@import 'reset';
+@import 'utils';
+
+// components
+@import 'components';
+
+// common styles
+body {
+  font-family: $font-family-default;
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+  font-weight: $font-weight-normal;
+  background: $color-bg;
+  color: $color-text-regular;
+}
+
+::-webkit-input-placeholder { color: rgba($color-text-regular, .5); }
+::-moz-placeholder { color: rgba($color-text-regular, .5); }
+:-ms-input-placeholder { color: rgba($color-text-regular, .5); }
+
+a {
+  color: $color-primary;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+small, .small {
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+}
+
+h1, .h1 {
+  font-size: $font-size-heading;
+  line-height: $line-height-heading;
+  font-weight: $font-weight-bold;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+h2, .h2 {
+  font-size: $font-size-subheading;
+  line-height: $line-height-subheading;
+  font-weight: $font-weight-bold;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+h3, .h3 {
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+  font-weight: $font-weight-bold;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: $transition-page;
+  // transform: scale(.95);
+}
+.page-enter {
+  opacity: 0;
+  transform: translate(0, -1%);
+}
+.page-leave-active {
+  opacity: 0;
+  transform: translate(0, -1%);
+}
+
+.wrapper {
+  max-width: 100%;
+  width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.narrow {
+    width: 640px;
+  }
+}

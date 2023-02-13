@@ -4,9 +4,6 @@
       .wrapper.narrow.flex.column.center
         h1 Common components
         h2.text-regular {{ description }}.
-        common-button(
-          href="/das"
-        ) Button
       .counters.flex.a-center
         a(href="https://www.npmjs.com/package/@macdakilla/common-components" target="_blank")
           img(src="https://img.shields.io/npm/v/@macdakilla/common-components.svg")

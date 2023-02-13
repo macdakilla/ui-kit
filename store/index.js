@@ -5,76 +5,64 @@ export const state = () => ({
       title: 'Button',
       properties: [
         {
-          name: 'id',
-          type: 'String, Number',
-          description: 'Button "id" attribute value',
-          default: 'random seven-digit number'
-        },
-        {
-          name: 'name',
+          name: 'variant',
           type: 'String',
-          description: 'Button "name" attribute value',
-          default: ''
-        },
-        {
-          name: 'type',
-          type: 'String',
-          description: 'Button type for custom styles',
+          description: 'Тип стилей кнопки',
           default: 'default'
         },
         {
           name: 'size',
           type: 'String',
-          description: 'Button size for custom styles',
+          description: 'Размер стилей кнопки',
           default: 'default'
-        },
-        {
-          name: 'native',
-          type: 'String',
-          description: '"type" attribute value of button',
-          values: ['button', 'reset', 'submit'],
-          default: 'button'
-        },
-        {
-          name: 'form',
-          type: 'String',
-          description: 'Form ID button belongs (for "button" tag only)',
-          default: undefined
         },
         {
           name: 'href',
           type: 'String',
-          description: '"href" attribute value (for "a" tag only)',
+          description: 'Значение атрибута "href" (только для тега "a")',
           default: undefined
         },
         {
           name: 'to',
           type: 'String',
-          description: '"to" attribute value (for "nuxt-link" / "router-link" tag only)',
+          description: 'Значение атрибута "to" (только для тега "nuxt-link" / "router-link")',
           default: undefined
         },
         {
           name: 'target',
           type: 'String',
-          description: '"target" attribute value (for "a" tag only)',
+          description: 'Значение атрибута «target» (только для тега «а»)',
           default: '_self'
+        },
+        {
+          name: 'rel',
+          type: 'String',
+          description: 'Значение атрибута «rel» (только для тега «а»)',
+          default: 'nofollow'
+        },
+        {
+          name: 'tag',
+          type: 'String',
+          description: 'Устанавливает тег кнопки, если не передан аттрибут to или href',
+          default: 'button'
         },
         {
           name: 'disabled',
           type: 'Boolean',
-          description: 'Disabled state. No pointer events if disabled.',
+          description: 'Отключенное состояние. Нет событий указателя, если отключено.',
           default: 'false'
         }
       ],
       events: ['click'],
-      example: `<common-button
-                  variant="default"
-                  size="default"
-                  :disabled="false"
-                  @click="method"
-                >
-                  Button
-                </common-button>`
+      example: `
+<common-button
+  size="small"
+  :disabled="false"
+  @click="method"
+>
+  Button
+</common-button>
+`
     },
     {
       id: 'checkbox',

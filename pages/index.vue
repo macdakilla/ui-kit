@@ -4,20 +4,15 @@
       .wrapper.narrow.flex.column.center
         h1 Common components
         h2.text-regular {{ description }}.
-
+        common-button(
+          href="/das"
+        ) Button
       .counters.flex.a-center
-        a(href="https://www.npmjs.com/package/vue-common-components" target="_blank")
-          img(src="https://img.shields.io/npm/v/vue-common-components.svg")
-        a(href="https://npm-stat.com/charts.html?package=vue-common-components" target="_blank")
-          img(src="https://img.shields.io/npm/dm/vue-common-components.svg")
+        a(href="https://www.npmjs.com/package/@macdakilla/common-components" target="_blank")
+          img(src="https://img.shields.io/npm/v/@macdakilla/common-components.svg")
 
       .component-list.flex.center.wrap
         nuxt-link.component(v-for="component in components" v-if="!component.hidden" :to="`/docs?component=${component.id}`" :key="component.id") {{ component.title }}
-
-      .in-dev-list.flex.column.center
-        div Coming soon:
-        .flex.center
-          div(v-for="component in inDev" :key="component") {{ component }}
 
     .wrapper.narrow(id="get_started")
       .h1.heading.flex.center Getting started
@@ -80,16 +75,16 @@ export default {
     return {
       description,
       codes: {
-        yarn_install: 'yarn add --dev vue-common-components',
-        npm_install: 'npm i vue-common-components',
+        yarn_install: 'yarn add --dev @macdakilla/common-components',
+        npm_install: 'npm i @macdakilla/common-components',
         vue_init: `import Vue from 'vue'
-import VueCommonComponents from 'vue-common-components'
+import VueCommonComponents from '@macdakilla/common-components'
 Vue.use(VueCommonComponents, {
   // manual options here
 })`,
         nuxt_init: `export default {
   plugins: [
-    'node_modules/vue-common-components'
+    'node_modules/@macdakilla/common-components'
   ],
   commonComponents: {
     // manual options here
@@ -118,6 +113,11 @@ export default {
       components: state => state.components,
       inDev: state => state.inDev
     })
+  },
+  methods: {
+    log () {
+      console.log(21313)
+    }
   }
 }
 </script>

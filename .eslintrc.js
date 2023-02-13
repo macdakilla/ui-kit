@@ -18,6 +18,7 @@ module.exports = {
     indent: ['error', 2],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
+    curly: ['off'],
     'space-before-function-paren': ['warn', 'always'],
     'vue/name-property-casing': ['warn', 'kebab-case'],
     'vue/require-default-prop': 'off',

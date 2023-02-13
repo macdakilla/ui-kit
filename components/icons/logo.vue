@@ -1,6 +1,6 @@
 <template lang="pug">
   .icon-logo-component
-    div vue-common-components
+    div Сommon Сomponents
 </template>
 
 <style lang="scss" scoped>

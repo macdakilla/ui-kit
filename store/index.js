@@ -66,16 +66,15 @@ export const state = () => ({
           default: 'false'
         }
       ],
-      events: ['click', 'focus', 'blur'],
+      events: ['click'],
       example: `<common-button
-  type="default"
-  size="default"
-  native="submit"
-  :disabled="false"
-  @click="method"
->
-  Button
-</common-button>`
+                  variant="default"
+                  size="default"
+                  :disabled="false"
+                  @click="method"
+                >
+                  Button
+                </common-button>`
     },
     {
       id: 'checkbox',
@@ -809,11 +808,11 @@ commonComponents: {
       ],
       events: ['input', 'change', 'focus', 'blur', 'keyup', 'paste'],
       example: `<common-textarea
-  id="id"
-  v-model="value"
-  :rows="3"
-  placeholder="placeholder"
-/>`
+                  id="id"
+                  v-model="value"
+                  :rows="3"
+                  placeholder="placeholder"
+                />`
     }
   ],
   inDev: ['context-menu', 'dropdown', 'file-input', 'tooltip']

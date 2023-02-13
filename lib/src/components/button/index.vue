@@ -1,27 +1,21 @@
 <template>
-  <div class="common-button-component" @click="click">
-    <component
-      :is="tagName"
-      :id="id || false"
-      :name="name || false"
-      :class="classList"
-      role="button"
-      :type="tagName === 'button' ? native : false"
-      :form="tagName === 'button' ? form : false"
-      :to="to"
-      :href="href"
-      :target="href ? target : false"
-      :rel="href ? 'noopener' : false"
-      :disabled="disabled"
-      @focus="$emit('focus')"
-      @blur="$emit('blur')"
-    >
-      <slot>Button</slot>
-    </component>
-  </div>
+  <component
+    :is="tagName"
+    :class="classList"
+    :role="role"
+    :to="to"
+    :href="href"
+    :target="href ? target : false"
+    :rel="href ? rel : false"
+    :disabled="disabled"
+    @click="click"
+  >
+    <slot>Button</slot>
+  </component>
 </template>
 
 <script>
+import { bem } from '../../helpers'
 // Nuxt detection for nuxt-link / router-link tag
 let isNuxt = false
 try {
@@ -31,38 +25,24 @@ try {
 
 export default {
   props: {
-    // Button "id" attribute value
-    id: [String, Number],
-
-    // Button "name" attribute value
-    name: String,
-
-    // Button type for custom styles
-    type: {
+    // Button mode for custom styles
+    variant: {
       type: String,
       default: 'default'
     },
-
     // Button size for custom styles
     size: {
       type: String,
       default: 'default'
     },
-
-    // "type" attribute value of button
-    native: {
-      type: String,
-      default: 'button' // button, submit, confirm
-    },
-
-    // "form" attribute value (for "button" tag only)
-    form: String,
+    // Disabled state
+    disabled: Boolean,
 
     // "href" attribute value (for "a" tag only)
     href: String,
 
     // "to" attribute value (for "nuxt-link"/"router-link" tag only)
-    to: String,
+    to: [String, Object],
 
     // "target" attribute value (for "a" tag only)
     target: {
@@ -70,18 +50,32 @@ export default {
       default: '_self'
     },
 
-    // Disabled state
-    disabled: Boolean
+    // tag component if not attribute href and to
+    tag: {
+      type: String,
+      default: 'button'
+    },
+
+    // "rel" attribute value (for "a" tag only)
+    rel: {
+      type: String,
+      default: 'nofollow'
+    }
   },
   computed: {
     tagName () {
-      return this.href ? 'a' : this.to ? isNuxt ? 'nuxt-link' : 'router-link' : 'button'
+      if (this.href) return 'a'
+      if (this.to) return isNuxt ? 'nuxt-link' : 'router-link'
+      return this.tag
+    },
+    role () {
+      return this.to || this.href ? 'link' : 'button'
     },
     classList () {
       // custom type and size classnames
-      let classList = `common-button-type-${this.type} common-button-size-${this.size}`
+      const classList = [bem('common-button', this.variant), `common-button-size-${this.size}`]
       if (this.disabled) {
-        classList += ' common-button-disabled'
+        classList.push('disabled')
       }
       return classList
     }
@@ -97,35 +91,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  .common-button-component {
-    display: inline-flex;
-    flex-direction: column;
-
-    & > * {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      background: #ccc;
-      color: #fff;
-      font-family: inherit;
-      font-size: inherit;
-      line-height: inherit;
-      font-weight: inherit;
-      text-decoration: none;
-      outline: none;
-      cursor: pointer;
-
-      ::v-deep svg {
-        font-weight: normal;
-      }
-    }
-
-    .common-button-disabled {
-      opacity: .5;
-      pointer-events: none;
-    }
-  }
-</style>
+<style lang="scss" src="./index.scss" />

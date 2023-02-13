@@ -1,5 +1,5 @@
 {
-  "name": "common-components",
+  "name": "@macdakilla/common-components",
   "version": "0.0.1",
   "description": "Universal basic components for lego-car Vue.js/Nuxt.js project",
   "main": "lib/index.js",

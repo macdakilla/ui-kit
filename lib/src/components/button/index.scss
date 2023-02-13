@@ -1,0 +1,96 @@
+// Variables
+$button-padding: 5px 20px !default;
+$button-border-radius: 8px !default;
+$button-font-weight: 600 !default;
+// -----------------------------------
+// SIZE
+// default
+$button-size-default-height: 45px !default;
+$button-size-default-font-size: 14px !default;
+// large
+$button-size-large-height: 58px !default;
+$button-size-large-font-size: 16px !default;
+// small
+$button-size-small-height: 40px !default;
+$button-size-small-font-size: 14px !default;
+// -----------------------------------
+// VARIANT
+// default
+$button-var-default-border: none !default;
+$button-var-default-color: #ffffff !default;
+$button-var-default-bg-color: #CC163F !default;
+$button-var-default-hover-bg-color: #B41337 !default;
+$button-var-default-hover-color: #ffffff !default;
+$button-var-default-hover-border: none !default;
+// outline
+$button-var-outline-border: 1px solid #ffffff !default;
+$button-var-outline-color: #ffffff !default;
+$button-var-outline-bg-color: transparent !default;
+$button-var-outline-hover-bg-color: #ffffff !default;
+$button-var-outline-hover-color: #000000 !default;
+$button-var-outline-hover-border: 1px solid #ffffff !default;
+
+.common-button {
+  font-family: inherit;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+  user-select: none;
+  margin: 0;
+  outline: 0;
+  white-space: normal;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+  font-weight: $button-font-weight;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  transition: all .2s ease;
+  // default variant
+  border: $button-var-default-border;
+  color: $button-var-default-color;
+  background-color: $button-var-default-bg-color;
+  &:hover {
+    background-color: $button-var-default-hover-bg-color;
+    color: $button-var-default-hover-color;
+    border: $button-var-default-hover-border;
+  }
+  // outline variant
+  &--outline {
+    border: $button-var-outline-border;
+    color: $button-var-outline-color;
+    background-color: $button-var-outline-bg-color;
+    &:hover {
+      background-color: $button-var-outline-hover-bg-color;
+      color: $button-var-outline-hover-color;
+      border: $button-var-outline-hover-border;
+    }
+  }
+  // block
+  &--block {
+    width: 100%;
+  }
+  // sizes
+  &-size {
+    &-large {
+      min-height: $button-size-large-height;
+      font-size: $button-size-large-font-size;
+    }
+    &-default {
+      min-height: $button-size-default-height;
+      font-size: $button-size-default-font-size;
+    }
+    &-small {
+      min-height: $button-size-small-height;
+      font-size: $button-size-small-font-size;
+    }
+  }
+}

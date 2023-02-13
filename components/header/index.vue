@@ -6,26 +6,18 @@
           iconLogo
       nav.flex.a-center
         div
-          a(:class="{ active: $route.path === '/' }" href="/" @click.prevent="goToGetStarted") Get Started
+          a(:class="{ active: $route.path === '/' }" href="/" @click.prevent="goToGetStarted") Установка
         div
-          nuxt-link(to="/docs") Docs
-        div
-          a(:href="repository" target="_blank") GitHub
+          nuxt-link(to="/docs") Документация
 </template>
 
 <script>
-import app from '@/package.json'
 import iconLogo from '@/components/icons/logo'
 
 export default {
   name: 'header-component',
   components: {
     iconLogo
-  },
-  data () {
-    return {
-      repository: app.repository.url
-    }
   },
   methods: {
     goToGetStarted () {
